@@ -42,7 +42,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="totalTagsLabel" min="-2" pref="195" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="avgTagsPerSiteLabel" pref="224" max="32767" attributes="0"/>
+                      <Component id="avgTagsPerSiteLabel" pref="250" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="saveParseHistoryButton" min="-2" pref="128" max="-2" attributes="0"/>
                   </Group>
@@ -180,7 +180,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Save Top Ten"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="actionCommand" type="java.lang.String" value="Save Top Ten"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveTopTenResultsButtonActionPerformed"/>
@@ -206,7 +205,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="saveParseHistoryButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Save Parse History"/>
+        <Property name="text" type="java.lang.String" value="Save History"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveParseHistoryButtonActionPerformed"/>

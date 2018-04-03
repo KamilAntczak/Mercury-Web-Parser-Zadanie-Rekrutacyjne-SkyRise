@@ -104,7 +104,6 @@ public class MercuryParserGui extends javax.swing.JFrame {
 
         saveTopTenResultsButton.setText("Save Top Ten");
         saveTopTenResultsButton.setToolTipText("");
-        saveTopTenResultsButton.setActionCommand("Save Top Ten");
         saveTopTenResultsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveTopTenResultsButtonActionPerformed(evt);
@@ -116,7 +115,7 @@ public class MercuryParserGui extends javax.swing.JFrame {
         HistoryTextPane.setToolTipText("History of Parsing");
         jScrollPane1.setViewportView(HistoryTextPane);
 
-        saveParseHistoryButton.setText("Save Parse History");
+        saveParseHistoryButton.setText("Save History");
         saveParseHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveParseHistoryButtonActionPerformed(evt);
@@ -150,7 +149,7 @@ public class MercuryParserGui extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(totalTagsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(avgTagsPerSiteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                        .addComponent(avgTagsPerSiteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveParseHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
