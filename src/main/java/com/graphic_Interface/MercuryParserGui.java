@@ -1,9 +1,9 @@
 
-package com.graphicInterface;
+package com.graphic_Interface;
 
 import com.myexceptions.WrongAddressException;
 import com.statistics.HtmlTag;
-import com.web.WebConnections;
+import com.web_handling.WebConnections;
 import com.statistics.ContentScraper;
 import com.statistics.HistoryOfParsedSites;
 import com.statistics.HtmlTagsCounter;
@@ -11,8 +11,8 @@ import com.statistics.TopTenTagsCounter;
 import com.statistics.SaveFullJsonResponse;
 import com.statistics.SaveResultsJsonResponse;
 import com.statistics.SaveTopTenTags;
-import com.web.AddressValidator;
-import com.web.AddressReader;
+import com.web_handling.AddressValidator;
+import com.web_handling.AddressReader;
 
 
 /**

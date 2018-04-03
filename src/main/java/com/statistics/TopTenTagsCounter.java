@@ -18,6 +18,13 @@ public class TopTenTagsCounter {
     private List<HtmlTag> htmlTagStatistic = new ArrayList<>();
     private int totalTags = 0;
      
+     /**
+    * Add the most frequent HTML tags to list.
+    * If tag arleady exist on this list, sum up their counts.
+    *
+    * @param newTagsToAdd List containing statistics of parsed site,
+    * tags names and their instances.
+    */
      public void addToStatsList(List<HtmlTag> newTagsToAdd)
      {        
          

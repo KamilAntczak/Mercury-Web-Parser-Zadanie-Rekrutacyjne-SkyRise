@@ -11,11 +11,16 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 
 /**
- *
- * @author Kamil
- */
+    * 
+    *@author Kamil Antczak
+    */
 public class SaveFullJsonResponse {
     
+    /**
+    * Save the full Json response to the .txt file.
+    *
+    * @param pageJson a full Json response.
+    */
     public void saveResponse(String pageJson){
           JFileChooser fileChooser = new JFileChooser();        
       

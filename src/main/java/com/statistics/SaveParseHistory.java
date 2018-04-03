@@ -14,7 +14,11 @@ import javax.swing.JFileChooser;
  * @author Kamil
  */
 public class SaveParseHistory {
-    
+    /**
+    * Save the history of parsing to the .txt file.
+    *
+    * @param parseHistory String containing all parsed websites.
+    */
     public void saveTopTenResults(String parseHistory)
     {   
          JFileChooser fileChooser = new JFileChooser();                

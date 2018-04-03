@@ -1,4 +1,4 @@
-package com.web;
+package com.web_handling;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;

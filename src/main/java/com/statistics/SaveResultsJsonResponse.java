@@ -15,6 +15,11 @@ import javax.swing.JFileChooser;
  */
 public class SaveResultsJsonResponse {
     
+     /**
+    * Save the page content to the .txt file.
+    *
+    * @param pageContent String containing content response.
+    */
     public void saveResults(String pageContent)
     {
    

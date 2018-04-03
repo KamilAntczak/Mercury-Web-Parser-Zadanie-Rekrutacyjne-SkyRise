@@ -1,7 +1,7 @@
-package com.mycompany.mercuryparser;
+package com.mercuryparser;
 
 //import com.graphicInterface.NewJFrame;
-import com.graphicInterface.MercuryParserGui;
+import com.graphic_Interface.MercuryParserGui;
 
 /**
  *
@@ -10,7 +10,6 @@ import com.graphicInterface.MercuryParserGui;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-           
-        new MercuryParserGui().setVisible(true);       
+        new MercuryParserGui().setVisible(true);         
     }
 }

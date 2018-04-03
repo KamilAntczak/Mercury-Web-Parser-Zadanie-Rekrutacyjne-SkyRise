@@ -8,7 +8,7 @@ public class HtmlTag implements Comparable<HtmlTag>{
     
     public String tagName;
     public Integer count;
-
+    
     @Override
     public int compareTo(HtmlTag o) {
         return o.count - this.count;

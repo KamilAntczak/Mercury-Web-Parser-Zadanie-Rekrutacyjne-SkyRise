@@ -15,7 +15,11 @@ import javax.swing.JFileChooser;
  */
 public class SaveTopTenTags {
     
-    
+     /**
+    * Save the top ten html tags to the .txt file.
+    *
+    * @param topTen String containing statistic about most frequent html tags.
+    */
     public void saveTopTenResults(String topTen)
     {
    

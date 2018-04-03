@@ -15,7 +15,7 @@ public class ContentScraper {
     private String content;
     private String url;
 
-
+    
     public ContentScraper(String json) throws Exception {
         
         JsonNode rootNode = new ObjectMapper().readTree(new StringReader(json));
