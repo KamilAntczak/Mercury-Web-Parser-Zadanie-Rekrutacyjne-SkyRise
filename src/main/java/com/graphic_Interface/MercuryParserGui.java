@@ -236,6 +236,7 @@ public class MercuryParserGui extends javax.swing.JFrame {
             }
             catch(Exception exception)
             {
+                exception.printStackTrace();
             }
         }
         catch(WrongAddressException exceptionAddress){

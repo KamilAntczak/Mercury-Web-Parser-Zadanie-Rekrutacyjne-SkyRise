@@ -31,17 +31,6 @@ public class HistoryOfParsedSites {
        newSite.title = title;
        newSite.htmlResults = tags;
     }
-    
-    public String getAddress(int index)
-    {
-        String address;
-        if(parsedSite.size()-1 >= index){
-        address = parsedSite.get(index).address;
-        return address;
-        }
-        else
-            return null;
-    }
      
     @Override
     public String toString() {

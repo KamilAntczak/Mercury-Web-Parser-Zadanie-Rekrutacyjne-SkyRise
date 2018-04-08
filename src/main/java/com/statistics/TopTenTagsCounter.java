@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class TopTenTagsCounter {
     
-    private List<HtmlTag> htmlTagStatistic = new ArrayList<>();
+    private final List<HtmlTag> htmlTagStatistic = new ArrayList<>();
     private int totalTags = 0;
      
      /**
@@ -28,7 +28,7 @@ public class TopTenTagsCounter {
      public void addToStatsList(List<HtmlTag> newTagsToAdd)
      {        
          
-        for (HtmlTag toAdd : newTagsToAdd) {
+        for(HtmlTag toAdd : newTagsToAdd) {
             
             boolean check = true;
             for (HtmlTag tagFinalStats : htmlTagStatistic) {

@@ -31,7 +31,8 @@ public class WebConnections {
             HttpEntity entity = response.getEntity();
             Object json = mapper.readValue(EntityUtils.toString(entity), Object.class);
             feedback = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-        } catch (ExportException exception) {
+        } 
+        catch (ExportException exception) {
             exception.getStackTrace();
         }
         
