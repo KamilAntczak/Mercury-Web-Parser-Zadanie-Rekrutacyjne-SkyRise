@@ -13,27 +13,23 @@ import javax.swing.JFileChooser;
  *
  * @author Kamil
  */
-public class SaveResultsJsonResponse {
+public class SaveChoosenStat {
     
      /**
-    * Save the page content to the .txt file.
+    * Save the top ten html tags to the .txt file.
     *
-    * @param pageContent String containing content response.
+    * @param toSave put String to save.
     */
-    public void saveResults(String pageContent)
+    public void saveStat(String toSave)
     {
    
-         JFileChooser fileChooser = new JFileChooser();                
+        JFileChooser fileChooser = new JFileChooser();                
         if(JFileChooser.APPROVE_OPTION == fileChooser.showSaveDialog(null))
         {
             File file = fileChooser.getSelectedFile();
-            try{
-                HtmlTagsCounter htmlTagsCounter = new HtmlTagsCounter();
-                htmlTagsCounter.scrapContent(pageContent);
-                htmlTagsCounter.getTags().sort(HtmlTag::compareTo);
-               
+            try{              
                 FileWriter fileWriter = new FileWriter(file.getPath());
-                fileWriter.write(htmlTagsCounter.toString());
+                fileWriter.write(toSave);
                 fileWriter.flush();
                 fileWriter.close();
             }
@@ -41,4 +37,5 @@ public class SaveResultsJsonResponse {
             {}
         }
     }
+    
 }

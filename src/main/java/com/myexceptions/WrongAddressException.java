@@ -10,12 +10,11 @@ package com.myexceptions;
  * @author Kamil
  */
 public class WrongAddressException extends Exception {
-    
-    public WrongAddressException(){       
+
+    public WrongAddressException() {
     }
-    
-    public void returnError()
-    {
-    System.out.println("Invalid Address");
+
+    public void returnError() {
+        System.out.println("Invalid Address");
     }
 }

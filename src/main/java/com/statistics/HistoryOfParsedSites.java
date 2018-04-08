@@ -13,31 +13,30 @@ import java.util.List;
  * @author Kamil
  */
 public class HistoryOfParsedSites {
-    
+
     private final List<ParsedWebSite> parsedSite = new ArrayList<>();
-    
+
     /**
-    * Add website to List of parsed Web Sites
-    *
-    * @param address  an absolute URL String
-    * @param title an title of parsed website String
-    * @param tags String of every HTML Tag
-    */
-    public void addToHistory(String address, String title, String tags)
-    {
-       ParsedWebSite newSite = new ParsedWebSite();
-       parsedSite.add(0,newSite);
-       newSite.address = address;
-       newSite.title = title;
-       newSite.htmlResults = tags;
+     * Add website to List of parsed Web Sites
+     *
+     * @param address an absolute URL String
+     * @param title an title of parsed website String
+     * @param tags String of every HTML Tag
+     */
+    public void addToHistory(String address, String title, String tags) {
+        ParsedWebSite newSite = new ParsedWebSite();
+        parsedSite.add(0, newSite);
+        newSite.address = address;
+        newSite.title = title;
+        newSite.htmlResults = tags;
     }
-     
+
     @Override
     public String toString() {
         return parsedSite.toString();
     }
-       
-    public int getSizeOfHistory(){
+
+    public int getSizeOfHistory() {
         return parsedSite.size();
     }
 }

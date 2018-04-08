@@ -10,12 +10,13 @@ package com.statistics;
  * @author Kamil
  */
 public class ParsedWebSite {
+
     public String address;
     public String title;
     public String htmlResults;
-    
-@Override
+
+    @Override
     public String toString() {
-        return title + " - " + address + System.lineSeparator() +htmlResults + System.lineSeparator()+ System.lineSeparator();
+        return title + " - " + address + System.lineSeparator() + htmlResults + System.lineSeparator() + System.lineSeparator();
     }
 }

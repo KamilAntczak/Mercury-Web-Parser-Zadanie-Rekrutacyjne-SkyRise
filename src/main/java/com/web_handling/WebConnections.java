@@ -9,12 +9,13 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import java.rmi.server.ExportException;
 import com.myexceptions.WrongAddressException;
+
 /**
  *
  * @author Kamil
  */
 public class WebConnections {
-    
+
     private String webPageJson;
 
     public WebConnections(String user_htpp) throws Exception {
@@ -31,14 +32,14 @@ public class WebConnections {
             HttpEntity entity = response.getEntity();
             Object json = mapper.readValue(EntityUtils.toString(entity), Object.class);
             feedback = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-        } 
-        catch (ExportException exception) {
+        } catch (ExportException exception) {
             exception.getStackTrace();
         }
-        
-        if(feedback.equals(" \"message\" : \"Internal server error\" "))
+
+        if (feedback.equals(" \"message\" : \"Internal server error\" ")) {
             throw new WrongAddressException();
-        
+        }
+
         webPageJson = feedback;
     }
 

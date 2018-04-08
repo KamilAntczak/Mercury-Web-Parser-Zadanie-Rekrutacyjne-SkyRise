@@ -1,4 +1,3 @@
-
 package com.graphic_Interface;
 
 import com.myexceptions.WrongAddressException;
@@ -7,31 +6,29 @@ import com.web_handling.WebConnections;
 import com.statistics.ContentScraper;
 import com.statistics.HistoryOfParsedSites;
 import com.statistics.HtmlTagsCounter;
+import com.statistics.SaveChoosenStat;
 import com.statistics.TopTenTagsCounter;
-import com.statistics.SaveFullJsonResponse;
-import com.statistics.SaveResultsJsonResponse;
-import com.statistics.SaveTopTenTags;
 import com.web_handling.AddressValidator;
 import com.web_handling.AddressReader;
-
 
 /**
  *
  * @author Kamil
  */
 public class MercuryParserGui extends javax.swing.JFrame {
-    
+
     String pageJson;
     String pageContent;
     String topTenResults;
+    String singleResult;
     TopTenTagsCounter topTenTags = new TopTenTagsCounter();
     HistoryOfParsedSites historyOfParse = new HistoryOfParsedSites();
-    
+    SaveChoosenStat saveChoosenStat = new SaveChoosenStat();
+
     public MercuryParserGui() {
         initComponents();
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -172,14 +169,15 @@ public class MercuryParserGui extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userWebsiteAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(parseSiteButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(parseSiteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(userWebsiteAddressInput)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(webTitleLabel)
+                .addComponent(webTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(webAddressLabel)
+                .addComponent(webAddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sortedHtmlTagsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -203,12 +201,12 @@ public class MercuryParserGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void parseSiteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parseSiteButtonActionPerformed
-        
-        try{
-        String inputAddres = this.userWebsiteAddressInput.getText();
-        String webPageAddress = AddressReader.readAddres(new AddressValidator(), inputAddres);       
 
-            try{           
+        try {
+            String inputAddres = this.userWebsiteAddressInput.getText();
+            String webPageAddress = AddressReader.readAddres(new AddressValidator(), inputAddres);
+
+            try {
                 WebConnections web = new WebConnections(webPageAddress);
                 pageJson = web.getWebPageJson();
                 ContentScraper scrap = new ContentScraper(pageJson);
@@ -217,32 +215,30 @@ public class MercuryParserGui extends javax.swing.JFrame {
                 pageContent = scrap.getContent();
                 htmlTagsCounter.scrapContent(pageContent);
                 htmlTagsCounter.getTags().sort(HtmlTag::compareTo);
-                               
+                singleResult = htmlTagsCounter.toString();
+
                 topTenTags.addToStatsList(htmlTagsCounter.getTags());
                 topTenTags.getTags().sort(HtmlTag::compareTo);
                 topTenTags.getTopTenTags();
-                
+
                 historyOfParse.addToHistory(scrap.getUrl(), scrap.getTitle(), htmlTagsCounter.toString());
-      
+
                 this.sortedHtmlTagsLabel.setText(htmlTagsCounter.toString());
                 this.webTitleLabel.setText("Title: " + scrap.getTitle());
                 this.webAddressLabel.setText("Address: " + scrap.getUrl());
                 this.topTenLabel.setText("Top Ten Tags: " + topTenTags.getTopTenTags());
                 this.HistoryTextPane.setText(historyOfParse.toString());
-                this.avgTagsPerSiteLabel.setText("Average Tags per Site: "+String.valueOf(topTenTags.getTotalTags()/historyOfParse.getSizeOfHistory()));
+                this.avgTagsPerSiteLabel.setText("Average Tags per Site: " + String.valueOf(topTenTags.getTotalTags() / historyOfParse.getSizeOfHistory()));
                 this.totalTagsLabel.setText("Sum of all tags: " + topTenTags.getTotalTags());
                 this.tagsOnThisSiteLabel.setText("Tags on this site: " + htmlTagsCounter.getTagsOnSingleSite());
 
-            }
-            catch(Exception exception)
-            {
+            } catch (Exception exception) {
                 exception.printStackTrace();
             }
+        } catch (WrongAddressException exceptionAddress) {
+            exceptionAddress.returnError();
         }
-        catch(WrongAddressException exceptionAddress){
-           exceptionAddress.returnError();
-        }
-        
+
     }//GEN-LAST:event_parseSiteButtonActionPerformed
 
     private void userWebsiteAddressInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userWebsiteAddressInputActionPerformed
@@ -250,27 +246,22 @@ public class MercuryParserGui extends javax.swing.JFrame {
     }//GEN-LAST:event_userWebsiteAddressInputActionPerformed
 
     private void saveJsonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveJsonButtonActionPerformed
-
-             SaveFullJsonResponse saveFullResponse = new SaveFullJsonResponse();
-             saveFullResponse.saveResponse(pageJson);
+        saveChoosenStat.saveStat(pageJson);
     }//GEN-LAST:event_saveJsonButtonActionPerformed
 
     private void saveHtmlResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveHtmlResultsActionPerformed
 
-        SaveResultsJsonResponse saveResultsJson = new SaveResultsJsonResponse();
-        saveResultsJson.saveResults(pageJson);
-             
+        saveChoosenStat.saveStat(singleResult);
     }//GEN-LAST:event_saveHtmlResultsActionPerformed
 
     private void saveTopTenResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveTopTenResultsButtonActionPerformed
 
-        SaveTopTenTags saveTopTen = new SaveTopTenTags();
-        saveTopTen.saveTopTenResults(topTenTags.getTopTenTags());
+        saveChoosenStat.saveStat(topTenTags.getTopTenTags());
     }//GEN-LAST:event_saveTopTenResultsButtonActionPerformed
 
     private void saveParseHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveParseHistoryButtonActionPerformed
-        SaveTopTenTags saveTopTen = new SaveTopTenTags();
-        saveTopTen.saveTopTenResults(historyOfParse.toString());
+
+        saveChoosenStat.saveStat(historyOfParse.toString());
     }//GEN-LAST:event_saveParseHistoryButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

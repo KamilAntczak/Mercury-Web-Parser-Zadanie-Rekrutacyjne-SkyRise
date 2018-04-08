@@ -4,11 +4,11 @@ package com.statistics;
  *
  * @author Kamil
  */
-public class HtmlTag implements Comparable<HtmlTag>{
-    
+public class HtmlTag implements Comparable<HtmlTag> {
+
     public String tagName;
     public Integer count;
-    
+
     @Override
     public int compareTo(HtmlTag o) {
         return o.count - this.count;
@@ -16,6 +16,6 @@ public class HtmlTag implements Comparable<HtmlTag>{
 
     @Override
     public String toString() {
-        return "{" + tagName + " = " + count+ "}";
+        return "|" + tagName + " = " + count + "|";
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
  * @author Kamil
  */
 public class AddressValidator {
+
     private final List<String> requirements = new ArrayList<String>() {
         {
             add("http");
@@ -17,9 +18,9 @@ public class AddressValidator {
     };
 
     public boolean check(String stringAddress) {
-        for(String requirement : requirements){
-            if(!stringAddress.contains(requirement)) {
-                System.out.println("ERROR: Missing "+ requirement);
+        for (String requirement : requirements) {
+            if (!stringAddress.contains(requirement)) {
+                System.out.println("ERROR: Missing " + requirement);
                 return false;
             }
         }
