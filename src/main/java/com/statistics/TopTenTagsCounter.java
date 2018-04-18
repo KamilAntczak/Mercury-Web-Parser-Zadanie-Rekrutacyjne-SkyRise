@@ -33,16 +33,16 @@ public class TopTenTagsCounter {
                 if (tagFinalStats.tagName.equals(toAdd.tagName)) {
                     check = false;
                     tagFinalStats.count = tagFinalStats.count + toAdd.count;
-                    totalTags += toAdd.count;
+                    break;
                 }
             }
             if (check) {
                 HtmlTag newTag = new HtmlTag();
                 htmlTagStatistic.add(newTag);
                 newTag.tagName = toAdd.tagName;
-                newTag.count = toAdd.count;
-                totalTags += toAdd.count;
+                newTag.count = toAdd.count;                
             }
+            totalTags += toAdd.count;
         }
     }
 
@@ -52,13 +52,14 @@ public class TopTenTagsCounter {
 
     public String getTopTenTags() {
 
-        String topTen = null;
-        for (int i = 0; i <= 10; i++) {
-            if (htmlTagStatistic.size() >= i) {
-                topTen = htmlTagStatistic.subList(0, i).toString();
-            }
-        }
-        return topTen;
+//        String topTen = null;
+        return htmlTagStatistic.subList(0, Math.min(10, htmlTagStatistic.size())).toString();
+//        for (int i = 0; i <= 10; i++) {
+//            if (htmlTagStatistic.size() >= i) {
+//                topTen = htmlTagStatistic.subList(0, i).toString();
+//            }
+//        }
+        //return topTen;
     }
 
     public int getTotalTags() {

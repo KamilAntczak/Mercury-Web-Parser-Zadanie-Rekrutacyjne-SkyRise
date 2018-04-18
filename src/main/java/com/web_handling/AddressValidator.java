@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class AddressValidator {
 
-    private final List<String> requirements = new ArrayList<String>() {
+    private static final List<String> requirements = new ArrayList<String>() {
         {
             add("http");
             add("www.");

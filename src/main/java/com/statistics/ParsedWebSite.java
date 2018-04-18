@@ -11,10 +11,18 @@ package com.statistics;
  */
 public class ParsedWebSite {
 
-    public String address;
-    public String title;
-    public String htmlResults;
+    private final String address;
+    private final String title;
+    private final String htmlResults;
 
+    public ParsedWebSite(String address, String title, String htmlResults) {
+        this.address = address;
+        this.title = title;
+        this.htmlResults = htmlResults;
+    }
+
+    
+    
     @Override
     public String toString() {
         return title + " - " + address + System.lineSeparator() + htmlResults + System.lineSeparator() + System.lineSeparator();

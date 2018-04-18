@@ -7,6 +7,7 @@ package com.statistics;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JFileChooser;
 
 /**
@@ -27,13 +28,11 @@ public class SaveChoosenStat {
         if(JFileChooser.APPROVE_OPTION == fileChooser.showSaveDialog(null))
         {
             File file = fileChooser.getSelectedFile();
-            try{              
-                FileWriter fileWriter = new FileWriter(file.getPath());
+            try (FileWriter fileWriter = new FileWriter(file.getPath())) {              
                 fileWriter.write(toSave);
                 fileWriter.flush();
-                fileWriter.close();
             }
-            catch(Exception exception)
+            catch(IOException exception)
             {}
         }
     }

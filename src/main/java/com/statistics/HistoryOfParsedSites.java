@@ -24,11 +24,7 @@ public class HistoryOfParsedSites {
      * @param tags String of every HTML Tag
      */
     public void addToHistory(String address, String title, String tags) {
-        ParsedWebSite newSite = new ParsedWebSite();
-        parsedSite.add(0, newSite);
-        newSite.address = address;
-        newSite.title = title;
-        newSite.htmlResults = tags;
+        parsedSite.add(0, new ParsedWebSite(address, title, tags));
     }
 
     @Override

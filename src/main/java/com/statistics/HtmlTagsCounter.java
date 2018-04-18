@@ -22,7 +22,7 @@ public class HtmlTagsCounter {
      * @param content a Json String, Content of website
      */
     public void scrapContent(String content) {
-        Pattern pattern = Pattern.compile("[<]{1}[/]{1}[a-z]{1,}");
+        Pattern pattern = Pattern.compile("(</[a-zA-Z0-9]+)|([a-zA-Z0-9 ]+/>)");
         Matcher match = pattern.matcher(content);
 
         while (match.find()) {
