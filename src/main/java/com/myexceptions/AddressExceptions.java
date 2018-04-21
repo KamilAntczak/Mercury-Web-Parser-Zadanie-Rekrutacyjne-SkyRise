@@ -9,12 +9,16 @@ package com.myexceptions;
  *
  * @author Kamil
  */
-public class WrongAddressException extends Exception {
+public class AddressExceptions extends Exception {
 
-    public WrongAddressException() {
+    public AddressExceptions() {
     }
 
-    public void returnError() {
-        System.out.println("Invalid Address");
+    public String returnAddresError() {
+        return "Invalid Address";
+    }
+    
+    public String cantParse() {
+        return "This site cannot be parsed";
     }
 }

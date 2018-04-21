@@ -33,7 +33,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="saveHtmlResults" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="saveJsonButton" min="-2" max="-2" attributes="0"/>
@@ -41,28 +41,31 @@
                       <Component id="tagsOnThisSiteLabel" min="-2" pref="215" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="totalTagsLabel" min="-2" pref="195" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="avgTagsPerSiteLabel" pref="250" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="avgTagsPerSiteLabel" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="saveParseHistoryButton" min="-2" pref="128" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="webTitleLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="webAddressLabel" alignment="1" max="32767" attributes="0"/>
                           <Component id="sortedHtmlTagsLabel" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="userWebsiteAddressInput" min="-2" pref="838" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="parseSiteButton" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="topTenLabel" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="saveTopTenResultsButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Component id="topTenLabel" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="saveTopTenResultsButton" min="-2" pref="160" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="errorMessageLabel" min="-2" pref="370" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="webTitleLabel" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="userWebsiteAddressInput" min="-2" pref="910" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="parseSiteButton" min="-2" pref="167" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -73,12 +76,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="parseSiteButton" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="userWebsiteAddressInput" max="32767" attributes="0"/>
-                  </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="userWebsiteAddressInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="parseSiteButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="webTitleLabel" min="-2" pref="38" max="-2" attributes="0"/>
@@ -90,19 +91,21 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="saveHtmlResults" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="saveJsonButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="saveParseHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="avgTagsPerSiteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="totalTagsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tagsOnThisSiteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="totalTagsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avgTagsPerSiteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="saveParseHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="312" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="topTenLabel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="saveTopTenResultsButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="topTenLabel" min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="errorMessageLabel" max="32767" attributes="0"/>
+                  <Component id="saveTopTenResultsButton" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -110,7 +113,8 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="userWebsiteAddressInput">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="Put your URL here"/>
+        <Property name="text" type="java.lang.String" value="http://www.example.com"/>
+        <Property name="toolTipText" type="java.lang.String" value="Put your URL with http://www."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userWebsiteAddressInputActionPerformed"/>
@@ -239,6 +243,21 @@
         <Property name="text" type="java.lang.String" value="Tags on this site:"/>
         <Property name="toolTipText" type="java.lang.String" value="tags on this site"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="errorMessageLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="16" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="f0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="errorMessageLabelAncestorAdded"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

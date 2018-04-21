@@ -1,6 +1,6 @@
 package com.web_handling;
 
-import com.myexceptions.WrongAddressException;
+import com.myexceptions.AddressExceptions;
 
 /**
  *
@@ -14,13 +14,13 @@ public class AddressReader {
      * @param addressValidator checks if addres is proper.
      * @param givenAddres address given by user
      */
-    public static String readAddres(AddressValidator addressValidator, String givenAddres) throws WrongAddressException {
+    public static String readAddres(AddressValidator addressValidator, String givenAddres) throws AddressExceptions {
         String webPage = givenAddres;
-        if (addressValidator.check(webPage) && !givenAddres.isEmpty()) {
-            return webPage;
-        } else {
-            throw new WrongAddressException();
+        if (!givenAddres.isEmpty() && addressValidator.check(webPage)) {
+            return webPage;            
+        } 
+        else {
+            throw new AddressExceptions();
         }
-
     }
 }

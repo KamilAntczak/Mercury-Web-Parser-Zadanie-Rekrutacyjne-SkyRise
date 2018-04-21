@@ -8,7 +8,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import java.rmi.server.ExportException;
-import com.myexceptions.WrongAddressException;
+import com.myexceptions.AddressExceptions;
 
 /**
  *
@@ -37,7 +37,7 @@ public class WebConnections {
         }
 
         if (feedback.equals(" \"message\" : \"Internal server error\" ")) {
-            throw new WrongAddressException();
+            throw new AddressExceptions();
         }
 
         webPageJson = feedback;

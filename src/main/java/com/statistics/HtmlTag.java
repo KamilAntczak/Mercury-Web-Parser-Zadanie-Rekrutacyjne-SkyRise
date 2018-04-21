@@ -16,6 +16,6 @@ public class HtmlTag implements Comparable<HtmlTag> {
 
     @Override
     public String toString() {
-        return "|" + tagName + " = " + count + "|";
+        return " " + tagName + " = " + count + " ";
     }
 }

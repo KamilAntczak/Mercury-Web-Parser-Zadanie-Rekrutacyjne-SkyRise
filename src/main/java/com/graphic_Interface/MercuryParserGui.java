@@ -1,6 +1,6 @@
 package com.graphic_Interface;
 
-import com.myexceptions.WrongAddressException;
+import com.myexceptions.AddressExceptions;
 import com.statistics.HtmlTag;
 import com.web_handling.WebConnections;
 import com.statistics.ContentScraper;
@@ -48,6 +48,7 @@ public class MercuryParserGui extends javax.swing.JFrame {
         avgTagsPerSiteLabel = new javax.swing.JLabel();
         totalTagsLabel = new javax.swing.JLabel();
         tagsOnThisSiteLabel = new javax.swing.JLabel();
+        errorMessageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mercury Web Parser Antczak Kamil");
@@ -55,7 +56,8 @@ public class MercuryParserGui extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setName("MercuryParser"); // NOI18N
 
-        userWebsiteAddressInput.setToolTipText("Put your URL here");
+        userWebsiteAddressInput.setText("http://www.example.com");
+        userWebsiteAddressInput.setToolTipText("Put your URL with http://www.");
         userWebsiteAddressInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userWebsiteAddressInputActionPerformed(evt);
@@ -131,6 +133,20 @@ public class MercuryParserGui extends javax.swing.JFrame {
         tagsOnThisSiteLabel.setText("Tags on this site:");
         tagsOnThisSiteLabel.setToolTipText("tags on this site");
 
+        errorMessageLabel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        errorMessageLabel.setForeground(new java.awt.Color(240, 0, 0));
+        errorMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorMessageLabel.setToolTipText("");
+        errorMessageLabel.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                errorMessageLabelAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,35 +161,37 @@ public class MercuryParserGui extends javax.swing.JFrame {
                         .addComponent(tagsOnThisSiteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(totalTagsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(avgTagsPerSiteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(avgTagsPerSiteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveParseHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saveParseHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(webTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(webAddressLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sortedHtmlTagsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(topTenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(userWebsiteAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(parseSiteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(saveTopTenResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(errorMessageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(webTitleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(topTenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(userWebsiteAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(saveTopTenResultsButton))
-                            .addComponent(jScrollPane1))))
+                                .addComponent(parseSiteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(parseSiteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(userWebsiteAddressInput)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userWebsiteAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(parseSiteButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(webTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -184,16 +202,18 @@ public class MercuryParserGui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveHtmlResults)
                     .addComponent(saveJsonButton)
-                    .addComponent(saveParseHistoryButton)
-                    .addComponent(avgTagsPerSiteLabel)
+                    .addComponent(tagsOnThisSiteLabel)
                     .addComponent(totalTagsLabel)
-                    .addComponent(tagsOnThisSiteLabel))
+                    .addComponent(avgTagsPerSiteLabel)
+                    .addComponent(saveParseHistoryButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(topTenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveTopTenResultsButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(topTenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorMessageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveTopTenResultsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -231,12 +251,13 @@ public class MercuryParserGui extends javax.swing.JFrame {
                 this.avgTagsPerSiteLabel.setText("Average Tags per Site: " + String.valueOf(topTenTags.getTotalTags() / historyOfParse.getSizeOfHistory()));
                 this.totalTagsLabel.setText("Sum of all tags: " + topTenTags.getTotalTags());
                 this.tagsOnThisSiteLabel.setText("Tags on this site: " + htmlTagsCounter.getTagsOnSingleSite());
+                this.errorMessageLabel.setText("");
 
             } catch (Exception exception) {
-                exception.printStackTrace();
+                this.errorMessageLabel.setText("This site cannot be parsed");
             }
-        } catch (WrongAddressException exceptionAddress) {
-            exceptionAddress.returnError();
+        } catch (AddressExceptions exceptionAddress) {
+            this.errorMessageLabel.setText(exceptionAddress.returnAddresError());
         }
 
     }//GEN-LAST:event_parseSiteButtonActionPerformed
@@ -264,9 +285,14 @@ public class MercuryParserGui extends javax.swing.JFrame {
         saveChoosenStat.saveStat(historyOfParse.toString());
     }//GEN-LAST:event_saveParseHistoryButtonActionPerformed
 
+    private void errorMessageLabelAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_errorMessageLabelAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_errorMessageLabelAncestorAdded
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextPane HistoryTextPane;
     private javax.swing.JLabel avgTagsPerSiteLabel;
+    private javax.swing.JLabel errorMessageLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton parseSiteButton;
     private javax.swing.JButton saveHtmlResults;
