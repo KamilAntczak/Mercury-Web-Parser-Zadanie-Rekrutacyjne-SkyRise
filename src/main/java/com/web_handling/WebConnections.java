@@ -43,7 +43,7 @@ public class WebConnections {
         webPageJson = feedback;
     }
 
-    public String getWebPageJson() {
+    public String getWebPageJson() {        
         return webPageJson;
     }
 }

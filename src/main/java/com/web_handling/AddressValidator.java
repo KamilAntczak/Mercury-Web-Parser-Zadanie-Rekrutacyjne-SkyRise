@@ -1,5 +1,6 @@
 package com.web_handling;
 
+import com.myexceptions.AddressExceptions;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +18,11 @@ public class AddressValidator {
         }
     };
 
-    public boolean check(String stringAddress) {
+    public boolean check(String stringAddress) throws AddressExceptions {
         for (String requirement : requirements) {
             if (!stringAddress.contains(requirement)) {
                 System.out.println("ERROR: Missing " + requirement);
-                return false;
+                throw new AddressExceptions();
             }
         }
         return true;
