@@ -26,21 +26,25 @@ public class WebConnections {
         httpGet.addHeader("Content-Type", "application/json");
         httpGet.addHeader("x-api-key", "nas1TIcr0O2wterrtc4fQywtufnXNe7HjIH50jeN");
 
-        String feedback = null;
+        String feedback = "";
 
-        try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
+        try(CloseableHttpResponse response = httpclient.execute(httpGet)) {
             HttpEntity entity = response.getEntity();
             Object json = mapper.readValue(EntityUtils.toString(entity), Object.class);
             feedback = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
-        } catch (ExportException exception) {
-            exception.getStackTrace();
+            
+           validate(feedback);
+           
+        }catch (ExportException exception) {
+                exception.getStackTrace();
         }
-
-        if (feedback.equals(" \"message\" : \"Internal server error\" ")) {
-            throw new AddressExceptions();
-        }
-
         webPageJson = feedback;
+    }
+    
+    private void validate(String feedback) throws Exception{
+        if (feedback.equals(" \"message\" : \"Internal server error\" ")) {
+                throw new AddressExceptions();
+        }
     }
 
     public String getWebPageJson() {        

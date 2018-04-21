@@ -35,59 +35,69 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="saveHtmlResults" min="-2" pref="129" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="saveJsonButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="tagsOnThisSiteLabel" min="-2" pref="215" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="totalTagsLabel" min="-2" pref="195" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="totalTagsLabel" min="-2" pref="208" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="avgTagsPerSiteLabel" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="saveParseHistoryButton" min="-2" pref="128" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="webAddressLabel" alignment="1" max="32767" attributes="0"/>
                           <Component id="sortedHtmlTagsLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Component id="topTenLabel" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="saveTopTenResultsButton" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="saveTopTenResultsButton" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="547" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="topTenLabel" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="errorMessageLabel" min="-2" pref="370" max="-2" attributes="0"/>
                           </Group>
                           <Component id="webTitleLabel" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="userWebsiteAddressInput" min="-2" pref="910" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="userWebsiteAddressInput" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="parseSiteButton" min="-2" pref="167" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="userWebsiteAddressInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="3" attributes="0">
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Component id="userWebsiteAddressInput" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="parseSiteButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="webTitleLabel" min="-2" pref="38" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="webAddressLabel" min="-2" pref="19" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="sortedHtmlTagsLabel" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="saveHtmlResults" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="saveJsonButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,16 +106,21 @@
                   <Component id="avgTagsPerSiteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="saveParseHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="312" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="topTenLabel" min="-2" pref="30" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="errorMessageLabel" max="32767" attributes="0"/>
-                  <Component id="saveTopTenResultsButton" max="32767" attributes="0"/>
-              </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="337" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="errorMessageLabel" pref="44" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                      <Component id="topTenLabel" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="saveTopTenResultsButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
